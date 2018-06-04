@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  middleware:
+    image: "nodered/node-red-docker:0.18.6"
+    ports:
+      - 1881:1880
+    volumes:
+      - "./data_nodered:/data"      
+  elk:
+    image: "elasticsearch:5.6-alpine"
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./data_elk:/usr/share/elasticsearch/data
